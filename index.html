@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Business Analysis - Get Your Free Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .benefits {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .benefit {
+            text-align: center;
+            flex: 1;
+        }
+
+        .benefit-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .benefit-text {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .form-container {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 30px;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .success-message h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .error-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #f8d7da;
+            color: #721c24;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .trust-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .trust-icon {
+            font-size: 1.5em;
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+
+        .trust-text {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .benefits {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Business Analysis</h1>
+            <p>Get Your Free Automation Opportunity Report</p>
+            <div class="benefits">
+                <div class="benefit">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-text">ROI Projections</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">Instant Analysis</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-text">Custom Solutions</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="businessAnalysisForm">
+                <div class="form-group">
+                    <label for="businessName">Company Name *</label>
+                    <input type="text" id="businessName" name="businessName" required 
+                           placeholder="Enter your company name">
+                </div>
+
+                <div class="form-group">
+                    <label for="industry">Industry *</label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select your industry</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Finance">Finance & Banking</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Legal">Legal Services</option>
+                        <option value="Real Estate">Real Estate</option>
+                        <option value="Education">Education</option>
+                        <option value="Retail">Retail & E-commerce</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Marketing">Marketing & Advertising</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="employeeCount">Number of Employees *</label>
+                    <select id="employeeCount" name="employeeCount" required>
+                        <option value="">Select company size</option>
+                        <option value="1-10">1-10 employees</option>
+                        <option value="11-25">11-25 employees</option>
+                        <option value="26-50">26-50 employees</option>
+                        <option value="51-100">51-100 employees</option>
+                        <option value="101-250">101-250 employees</option>
+                        <option value="250+">250+ employees</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="challenges">Current Business Challenges *</label>
+                    <textarea id="challenges" name="challenges" required 
+                              placeholder="Describe your main operational challenges (e.g., manual processes, inefficient workflows, repetitive tasks, data entry, customer service bottlenecks)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="goals">Business Goals & Objectives *</label>
+                    <textarea id="goals" name="goals" required 
+                              placeholder="What are you hoping to achieve? (e.g., increase efficiency, reduce costs, improve customer satisfaction, scale operations)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Business Email *</label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="your.email@company.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="phone" 
+                           placeholder="+1 (555) 123-4567">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Get My Free AI Analysis Report
+                </button>
+            </form>
+
+            <div class="loading" id="loadingDiv">
+                <div class="loading-spinner"></div>
+                <h3>Analyzing Your Business...</h3>
+                <p>Our AI is generating your personalized automation report. This will take about 30 seconds.</p>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <h3>🎉 Analysis Complete!</h3>
+                <p>Your personalized AI automation report has been generated and sent to your email.</p>
+                <p><strong>Check your inbox in the next few minutes for detailed results.</strong></p>
+                <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 10px;">
+                    <div id="analysisResults"></div>
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                <h3>⚠️ Something went wrong</h3>
+                <p>We couldn't process your request right now. Please try again or contact support.</p>
+            </div>
+        </div>
+
+        <div class="trust-indicators">
+            <div class="trust-item">
+                <div class="trust-icon">🔒</div>
+                <div class="trust-text">Secure & Private</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">⚡</div>
+                <div class="trust-text">Instant Results</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🆓</div>
+                <div class="trust-text">Completely Free</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('businessAnalysisForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Show loading state
+            document.getElementById('submitBtn').disabled = true;
+            document.querySelector('.form-container').style.display = 'none';
+            document.getElementById('loadingDiv').style.display = 'block';
+            
+            try {
+                // Send to n8n webhook - UPDATE THIS WITH YOUR ACTUAL WEBHOOK URL
+                const response = await fetch('https://your-n8n-instance.com/webhook/lead-capture', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    
+                    // Hide loading
+                    document.getElementById('loadingDiv').style.display = 'none';
+                    
+                    // Show success message with results
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('analysisResults').innerHTML = `
+                        <h4>Your Analysis Summary:</h4>
+                        <p><strong>Lead Score:</strong> ${result.leadScore || 'High'}/50 (${result.priority || 'High'} Priority)</p>
+                        <p><strong>Estimated Annual Savings:</strong> $${(result.estimatedSavings || 50000).toLocaleString()}</p>
+                        <p><strong>Status:</strong> ${result.message || 'Analysis complete - check your email!'}</p>
+                    `;
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                
+                // Hide loading
+                document.getElementById('loadingDiv').style.display = 'none';
+                
+                // Show error message
+                document.getElementById('errorMessage').style.display = 'block';
+                
+                // Re-enable form
+                document.getElementById('submitBtn').disabled = false;
+                document.querySelector('.form-container').style.display = 'block';
+            }
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            element.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
